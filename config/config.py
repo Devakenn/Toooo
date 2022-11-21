@@ -1,3 +1,12 @@
+#
+# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
+#
+# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
+# and is released under the "GNU v3.0 License Agreement".
+# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
+#
+# All rights reserved.
+
 import re
 import sys
 from os import getenv
@@ -7,107 +16,175 @@ from pyrogram import filters
 
 load_dotenv()
 
-API_ID = int(getenv("API_ID", "8934899"))
-API_HASH = getenv("API_HASH", "bf3e98d2c351e4ad06946b4897374a1e")
+# Get it from my.telegram.org
+API_ID = int(getenv("API_ID", "14688819"))
+API_HASH = getenv("API_HASH", "5f1643d1c49e6ef0732394c8c2016232")
 
-BOT_TOKEN = getenv("BOT_TOKEN", "5600536065:AAH5aGmPKprYwJBYqtyaoK52BeDH64fZOHw")
+## Get it from @Botfather in Telegram.
+BOT_TOKEN = getenv("BOT_TOKEN", "5723229922:AAH-SoqcHgIXu-39ygwOkj8dBpKxzf5ExIE")
 
-MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://veez:mega@cluster0.heqnd.mongodb.net/veez?retryWrites=true&w=majority")
+# Database to save your chats and stats... Get MongoDB:-  https://telegra.ph/How-To-get-Mongodb-URI-04-06
+MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://MusicTxn:MusicTxn@cluster0.iiws8am.mongodb.net/?retryWrites=true&w=majority")
 
+# Custom max audio(music) duration for voice chat. set DURATION_LIMIT in variables with your own time(mins), Default to 60 mins.
 DURATION_LIMIT_MIN = int(
-    getenv("DURATION_LIMIT", "90")
-)
+    getenv("DURATION_LIMIT", "150")
+)  # Remember to give value in Minutes
 
+# Duration Limit for downloading Songs in MP3 or MP4 format from bot
 SONG_DOWNLOAD_DURATION = int(
     getenv("SONG_DOWNLOAD_DURATION_LIMIT", "180")
-)
+)  # Remember to give value in Minutes
 
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1001786477760"))
+# You'll need a Private Group ID for this.
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1001862929482"))
 
-MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "bot Music 🎵 .")
+# A name for your Music bot.
+MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "MusicTxnBot")
 
+# Your User ID.
 OWNER_ID = list(
-    map(int, getenv("OWNER_ID", "5186954055").split())
-)
+    map(int, getenv("OWNER_ID", "5244755240").split())
+)  # Input type must be interger
 
+# Get it from http://dashboard.heroku.com/account
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
+# You have to Enter the app name which you gave to identify your  Music Bot in Heroku.
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 
+# For customized or modified Repository
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/SoRsRR8r9/yia",
+    "https://github.com/nn9nn/MusicTxnBot",
 )
+BOT_USERNAME = getenv(
+    "BOT_USERNAME", "ssTss_bot"
+)  # معرف بوتك بدون @
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 
+# GIT TOKEN ( if your edited repo is private)
 GIT_TOKEN = getenv("GIT_TOKEN", None)
 
+# Only  Links formats are  accepted for this Var value.
+CHANNEL_SUDO = getenv(
+    "CHANNEL_SUDO", "Mus_3b2"
+)  # معرف قناتك بدون @
+YAFA_NAME = getenv(
+    "YAFA_NAME", "TeAm FeNix"
+)  # اسم قناتك
+YAFA_CHANNEL = getenv(
+   " YAFA_CHANNEL", "https://t.me/Mus_3b2"
+)  # رابط قناتك
+SUDO_USER =getenv(
+    "SUDO_USER", "https://t.me/ipiiii"
+)  # رابط حسابك
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/Mus_3b2")
+    "SUPPORT_CHANNEL", "https://t.me/Mus_3b2"
+)  # رابط قناتك
 SUPPORT_GROUP = getenv(
-    "SUPPORT_GROUP", "https://t.me/ipiiii")
+    "SUPPORT_GROUP", "https://t.me/Mus_3b2"
+)  # رابط كروبك
 
-AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", "False")
+# Set it in True if you want to leave your assistant after a certain amount of time. [Set time via AUTO_LEAVE_ASSISTANT_TIME]
+AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", "true")
 
+# Time after which you're assistant account will leave chats automatically.
 AUTO_LEAVE_ASSISTANT_TIME = int(
     getenv("ASSISTANT_LEAVE_TIME", "5400")
-)
+)  # Remember to give value in Seconds
 
-AUTO_DOWNLOADS_CLEAR = getenv("AUTO_DOWNLOADS_CLEAR", "True")
+# Time after which bot will suggest random chats about bot commands.
+AUTO_SUGGESTION_TIME = int(
+    getenv("AUTO_SUGGESTION_TIME", "5400")
+)  # Remember to give value in Seconds
 
+# Set it True if you want to delete downloads after the music playout ends from your downloads folder
+AUTO_DOWNLOADS_CLEAR = getenv("AUTO_DOWNLOADS_CLEAR", None)
+
+# Set it True if you want to bot to suggest about bot commands to random chats of your bots.
+AUTO_SUGGESTION_MODE = getenv("AUTO_SUGGESTION_MODE", None)
+
+# Set it true if you want your bot to be private only [You'll need to allow CHAT_ID via /authorise command then only your bot will play music in that chat.]
 PRIVATE_BOT_MODE = getenv("PRIVATE_BOT_MODE", None)
 
-YOUTUBE_DOWNLOAD_EDIT_SLEEP = int(getenv("YOUTUBE_EDIT_SLEEP", "5"))
+# Time sleep duration For Youtube Downloader
+YOUTUBE_DOWNLOAD_EDIT_SLEEP = int(getenv("YOUTUBE_EDIT_SLEEP", "3"))
 
-TELEGRAM_DOWNLOAD_EDIT_SLEEP = int(getenv("TELEGRAM_EDIT_SLEEP", "6"))
+# Time sleep duration For Telegram Downloader
+TELEGRAM_DOWNLOAD_EDIT_SLEEP = int(getenv("TELEGRAM_EDIT_SLEEP", "5"))
 
-GITHUB_REPO = getenv("GITHUB_REPO", "https://telegra.ph/file/f84d28d91512a445ecce1.mp4")
+# Your Github Repo.. Will be shown on /start Command
+GITHUB_REPO = getenv("GITHUB_REPO", "https://t.me/S_Y_W")
 
+# Spotify Client.. Get it from https://developer.spotify.com/dashboard
 SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", None)
 SPOTIFY_CLIENT_SECRET = getenv("SPOTIFY_CLIENT_SECRET", None)
 
-VIDEO_STREAM_LIMIT = int(getenv("VIDEO_STREAM_LIMIT", "5"))
+# Maximum number of video calls allowed on bot. You can later set it via /set_video_limit on telegram
+VIDEO_STREAM_LIMIT = int(getenv("VIDEO_STREAM_LIMIT", "10"))
 
-SERVER_PLAYLIST_LIMIT = int(getenv("SERVER_PLAYLIST_LIMIT", "50"))
+# Maximum Limit Allowed for users to save playlists on bot's server
+SERVER_PLAYLIST_LIMIT = int(getenv("SERVER_PLAYLIST_LIMIT", "30"))
 
-PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "50"))
+# MaximuM limit for fetching playlist's track from youtube, spotify, apple links.
+PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "25"))
 
+# Cleanmode time after which bot will delete its old messages from chats
 CLEANMODE_DELETE_MINS = int(
-    getenv("CLEANMODE_MINS", "7")
-)
+    getenv("CLEANMODE_MINS", "10")
+)  # Remember to give value in Seconds
+
+
+# Telegram audio  and video file size limit
 
 TG_AUDIO_FILESIZE_LIMIT = int(
     getenv("TG_AUDIO_FILESIZE_LIMIT", "104857600")
-)
+)  # Remember to give value in bytes
 
 TG_VIDEO_FILESIZE_LIMIT = int(
     getenv("TG_VIDEO_FILESIZE_LIMIT", "1073741824")
-)
-# https://www.gbmb.org/mb-to-bytes
+)  # Remember to give value in bytes
 
-STRING1 = getenv("STRING_SESSION", "AgB7PcNf0oJC_rbiAbVktWAQwqaS0OG4_lQl7a8jxRS8OW0VN69sz6xoBucgnLSFXRCNssh0AqRCCS3lP5RGsOT0o8ddIFoEUFOlCKI-EdTfCENfqoowUJq0YQxgQxVg3LzO_AACWI2Sq5DMpMieN0mjaJ4QMH4uoY73qIjkPzHv6LS2QHn_bGv8NF3cjqmdWpTzHjOGUyBpQ3WL_RWCNDLz3n09Pk3jmCed0BtG2XMpCt3_gNY4lqyglL5tIBrmyO3173Za6ZFExd7MuQutuxsxrz3s1dYWL5v4iTCTBa-IvAq0mmCVEnVmQXyLRyNK1yQL280yXAuBW0KS3duMwzIuAAAAATdg9qcA")
-STRING2 = getenv("STRING_SESSION2", None)
+# Chceckout https://www.gbmb.org/mb-to-bytes  for converting mb to bytes
+
+
+# You'll need a Pyrogram String Session for these vars. Generate String from our session generator bot @YukkiStringBot
+STRING1 = getenv("STRING_SESSION", "AgA7lkf1HtMeyotDmsw51jkqPXryVB_Pbhl9Cp3XEjUMsGGaWJCL1GNRa-Qwl38Ct7C8_VL1K0ez-cAAnPh6r74xM7M3Kmbdk0ksSY8R39FaMvJ6xyVaBGsojM4CQE2QuonWIEzPvYxjiCYl09pXG_kEJESRQGskaSzUH6jWzOZ1PvRG6LXCfLYpXOALi6x8umfmMv-SCR4La5fJFcCMVcgJewjzzlZ-ZvM0yTAmORbWj8P46kzEHku7C9iwxFPlB3LLtgwxmbA8O0yiYE7V3J3xWBvMezqiobmQOlnvDAmBuvTauqkbohew-4lZR_ofkFONsgx8OG91zU5j-JwJRQEsAAAAAUfRvcEA")
+STRING2 = getenv("STRING_SESSION2", "BQCua-9RsOfy2uc2bigs1gAM6aUFMPaMgnUfWrvzM8dAfei4RifWbCU6ic-XLRunw6upPMG2il7hpOFJcqJphJQ_gaPmw4X6O5GKhBGj9s2s4MlQvzW8b_UxTdgaWSEA2hFUn6aCTaXi85NtDiw-HAS7ar4j3v43j5V5qQCaZPjio9pdZ6V9eztHpgtA_ONiR3F11681J7oGI4sweqafknILLHWYt4LQVRP96Mh5d0IIa00YYkuNbHwXd2mZu-m32LEf6_6c9KAOG7ZyitlodkoNziKLfR-O6IBQakojQ9P8mn-bIW6Ktoo1Mvl4l4cPLOmFIfIdzW14zj3Ar9tsztxOAAAAATkDiyUA")
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
 STRING5 = getenv("STRING_SESSION5", None)
 
+
+#  __     ___    _ _  ___  _______   __  __ _    _  _____ _____ _____   ____   ____ _______
+#  \ \   / / |  | | |/ / |/ /_   _| |  \/  | |  | |/ ____|_   _/ ____| |  _ \ / __ \__   __|
+#   \ \_/ /| |  | | ' /| ' /  | |   | \  / | |  | | (___   | || |      | |_) | |  | | | |
+#    \   / | |  | |  < |  <   | |   | |\/| | |  | |\___ \  | || |      |  _ <| |  | | | |
+#     | |  | |__| | . \| . \ _| |_  | |  | | |__| |____) |_| || |____  | |_) | |__| | | |
+#     |_|   \____/|_|\_\_|\_\_____| |_|  |_|\____/|_____/|_____\_____| |____/ \____/  |_|
+
+
+### DONT TOUCH or EDIT codes after this line
 BANNED_USERS = filters.user()
 YTDOWNLOADER = 1
 LOG = 2
-LOG_FILE_NAME = "anonxlogs.txt"
+LOG_FILE_NAME = "Yukkilogs.txt"
 adminlist = {}
 lyrical = {}
 chatstats = {}
-userstats = {}ه
+userstats = {}
 clean = {}
 
 autoclean = []
 
-START_IMG_URL = getenv("START_IMG_URL", "https://te.legra.ph/file/1d5b44ab1e2ec79875ee1.jpg")
+
+# Images
+START_IMG_URL = getenv("START_IMG_URL", "https://telegra.ph/file/c9f32c5803caf6010f07d.jpg")
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
-    "https://te.legra.ph/file/303a0e1d707b04a28a5ad.jpg",
+    "assets/Ping.jpeg",
 )
 
 PLAYLIST_IMG_URL = getenv(
@@ -179,7 +256,19 @@ SONG_DOWNLOAD_DURATION_LIMIT = int(
     time_to_seconds(f"{SONG_DOWNLOAD_DURATION}:00")
 )
 
-SUPPORT_HEHE = SUPPORT_GROUP.split("me/")[1]
+if SUPPORT_CHANNEL:
+    if not re.match("(?:http|https)://", SUPPORT_CHANNEL):
+        print(
+            "[ERROR] - Your SUPPORT_CHANNEL url is wrong. Please ensure that it starts with https://"
+        )
+        sys.exit()
+
+if SUPPORT_GROUP:
+    if not re.match("(?:http|https)://", SUPPORT_GROUP):
+        print(
+            "[ERROR] - Your SUPPORT_GROUP url is wrong. Please ensure that it starts with https://"
+        )
+        sys.exit()
 
 if UPSTREAM_REPO:
     if not re.match("(?:http|https)://", UPSTREAM_REPO):
@@ -187,6 +276,14 @@ if UPSTREAM_REPO:
             "[ERROR] - Your UPSTREAM_REPO url is wrong. Please ensure that it starts with https://"
         )
         sys.exit()
+
+if GITHUB_REPO:
+    if not re.match("(?:http|https)://", GITHUB_REPO):
+        print(
+            "[ERROR] - Your GITHUB_REPO url is wrong. Please ensure that it starts with https://"
+        )
+        sys.exit()
+
 
 if PING_IMG_URL:
     if PING_IMG_URL != "assets/Ping.jpeg":
@@ -264,3 +361,10 @@ if TELEGRAM_VIDEO_URL:
                 "[ERROR] - Your TELEGRAM_VIDEO_URL url is wrong. Please ensure that it starts with https://"
             )
             sys.exit()
+
+
+if not MUSIC_BOT_NAME.isascii():
+    print(
+        "[ERROR] - You've defined MUSIC_BOT_NAME wrong. Please don't use any special characters or Special font for this... Keep it simple and small."
+    )
+    sys.exit()
