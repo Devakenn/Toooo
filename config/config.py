@@ -71,7 +71,7 @@ CHANNEL_SUDO = getenv(
     "CHANNEL_SUDO", "Mus_3b2"
 )  # معرف قناتك بدون @
 YAFA_NAME = getenv(
-    "YAFA_NAME", "TeAm FeNix"
+    "YAFA_NAME", "𝖳𝖾𝖠𝗆 𝖥𝖾𝖭𝗂𝗑"
 )  # اسم قناتك
 YAFA_CHANNEL = getenv(
    " YAFA_CHANNEL", "https://t.me/Mus_3b2"
@@ -150,8 +150,8 @@ TG_VIDEO_FILESIZE_LIMIT = int(
 
 
 # You'll need a Pyrogram String Session for these vars. Generate String from our session generator bot @YukkiStringBot
-STRING1 = getenv("STRING_SESSION", "AgA7lkf1HtMeyotDmsw51jkqPXryVB_Pbhl9Cp3XEjUMsGGaWJCL1GNRa-Qwl38Ct7C8_VL1K0ez-cAAnPh6r74xM7M3Kmbdk0ksSY8R39FaMvJ6xyVaBGsojM4CQE2QuonWIEzPvYxjiCYl09pXG_kEJESRQGskaSzUH6jWzOZ1PvRG6LXCfLYpXOALi6x8umfmMv-SCR4La5fJFcCMVcgJewjzzlZ-ZvM0yTAmORbWj8P46kzEHku7C9iwxFPlB3LLtgwxmbA8O0yiYE7V3J3xWBvMezqiobmQOlnvDAmBuvTauqkbohew-4lZR_ofkFONsgx8OG91zU5j-JwJRQEsAAAAAUfRvcEA")
-STRING2 = getenv("STRING_SESSION2", "BQCua-9RsOfy2uc2bigs1gAM6aUFMPaMgnUfWrvzM8dAfei4RifWbCU6ic-XLRunw6upPMG2il7hpOFJcqJphJQ_gaPmw4X6O5GKhBGj9s2s4MlQvzW8b_UxTdgaWSEA2hFUn6aCTaXi85NtDiw-HAS7ar4j3v43j5V5qQCaZPjio9pdZ6V9eztHpgtA_ONiR3F11681J7oGI4sweqafknILLHWYt4LQVRP96Mh5d0IIa00YYkuNbHwXd2mZu-m32LEf6_6c9KAOG7ZyitlodkoNziKLfR-O6IBQakojQ9P8mn-bIW6Ktoo1Mvl4l4cPLOmFIfIdzW14zj3Ar9tsztxOAAAAATkDiyUA")
+STRING1 = getenv("STRING_SESSION", "AgBhd7HpXqBo2Njp6EAaG0TXxDvrqSxNKd8qIWzPHAEwU9-jjjQy_e9sqgGcZ5doOFNjI2Iu-7Z-5nsJskLQpcMFG7JE7ZFuRjVMwmfDN3nQQF4fmEdF778OVi2WYrFJlElhU2O30KDq48seIJUf3ViFaIAWfNhtWrqejcUlUSm8Zm7ilDUGN_-QcMVeiXei9bXWssDOZy32n2Ffjh_LnFzsHlqmoGUG47V6oLDm6dUPrFt0vgIRgSYe_wvLui252hGq49U_r40EyI2ZPlexEnfhvWZtmT1BzeWMTlv4J6DkAb72ccZb4B2xygNiP5VAkWlKtrNm6Xc_Q5JB6zZbmj_nAAAAAVRi_IAA")
+STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
 STRING5 = getenv("STRING_SESSION5", None)
@@ -180,7 +180,7 @@ autoclean = []
 
 
 # Images
-START_IMG_URL = getenv("START_IMG_URL", "https://telegra.ph/file/c9f32c5803caf6010f07d.jpg")
+START_IMG_URL = getenv("START_IMG_URL", "https://te.legra.ph/file/67c6d43a8372adf70bee5.jpg")
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
