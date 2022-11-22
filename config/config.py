@@ -68,22 +68,22 @@ GIT_TOKEN = getenv("GIT_TOKEN", None)
 
 # Only  Links formats are  accepted for this Var value.
 CHANNEL_SUDO = getenv(
-    "CHANNEL_SUDO", "Mus_3b2"
+    "CHANNEL_SUDO", "TeAmBamBe"
 )  # معرف قناتك بدون @
 YAFA_NAME = getenv(
-    "YAFA_NAME", "𝖳𝖾𝖠𝗆 𝖥𝖾𝖭𝗂𝗑"
+    "YAFA_NAME", "𝗧𝗲𝗔𝗺 𝗕𝗮𝗺𝗕𝗲"
 )  # اسم قناتك
 YAFA_CHANNEL = getenv(
-   " YAFA_CHANNEL", "https://t.me/Mus_3b2"
+   " YAFA_CHANNEL", "https://t.me/TeAmBamBe"
 )  # رابط قناتك
 SUDO_USER =getenv(
-    "SUDO_USER", "https://t.me/ipiiii"
+    "SUDO_USER", "https://t.me/QQQQSQ"
 )  # رابط حسابك
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/Mus_3b2"
+    "SUPPORT_CHANNEL", "https://t.me/TeAmBamBe"
 )  # رابط قناتك
 SUPPORT_GROUP = getenv(
-    "SUPPORT_GROUP", "https://t.me/Mus_3b2"
+    "SUPPORT_GROUP", "https://t.me/TeAmBamBe"
 )  # رابط كروبك
 
 # Set it in True if you want to leave your assistant after a certain amount of time. [Set time via AUTO_LEAVE_ASSISTANT_TIME]
@@ -180,7 +180,7 @@ autoclean = []
 
 
 # Images
-START_IMG_URL = getenv("START_IMG_URL", "https://te.legra.ph/file/67c6d43a8372adf70bee5.jpg")
+START_IMG_URL = getenv("START_IMG_URL", "https://te.legra.ph/file/418db75996538318e12f5.jpg")
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
