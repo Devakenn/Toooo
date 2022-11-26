@@ -68,22 +68,22 @@ GIT_TOKEN = getenv("GIT_TOKEN", None)
 
 # Only  Links formats are  accepted for this Var value.
 CHANNEL_SUDO = getenv(
-    "CHANNEL_SUDO", "Mus_3b2"
+    "CHANNEL_SUDO", "TeAmBamBe"
 )  # معرف قناتك بدون @
 YAFA_NAME = getenv(
-    "YAFA_NAME", "𝗧𝗲𝗔𝗺 𝗙𝗲𝗡𝗶𝘅"
+    "YAFA_NAME", "𝗧𝗲𝗔𝗺 𝗕𝗮𝗺𝗕𝗲"
 )  # اسم قناتك
 YAFA_CHANNEL = getenv(
-   " YAFA_CHANNEL", "https://t.me/Mus_3b2"
+   " YAFA_CHANNEL", "https://t.me/TeAmBamBe"
 )  # رابط قناتك
 SUDO_USER =getenv(
-    "SUDO_USER", "https://t.me/ipiiii"
+    "SUDO_USER", "https://t.me/QQQQSQ"
 )  # رابط حسابك
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/Mus_3b2"
+    "SUPPORT_CHANNEL", "https://t.me/TeAmBamBe"
 )  # رابط قناتك
 SUPPORT_GROUP = getenv(
-    "SUPPORT_GROUP", "https://t.me/Mus_3b2"
+    "SUPPORT_GROUP", "https://t.me/TeAmBamBe"
 )  # رابط كروبك
 
 # Set it in True if you want to leave your assistant after a certain amount of time. [Set time via AUTO_LEAVE_ASSISTANT_TIME]
@@ -151,7 +151,7 @@ TG_VIDEO_FILESIZE_LIMIT = int(
 
 # You'll need a Pyrogram String Session for these vars. Generate String from our session generator bot @YukkiStringBot
 STRING1 = getenv("STRING_SESSION", "AgBhd7HpXqBo2Njp6EAaG0TXxDvrqSxNKd8qIWzPHAEwU9-jjjQy_e9sqgGcZ5doOFNjI2Iu-7Z-5nsJskLQpcMFG7JE7ZFuRjVMwmfDN3nQQF4fmEdF778OVi2WYrFJlElhU2O30KDq48seIJUf3ViFaIAWfNhtWrqejcUlUSm8Zm7ilDUGN_-QcMVeiXei9bXWssDOZy32n2Ffjh_LnFzsHlqmoGUG47V6oLDm6dUPrFt0vgIRgSYe_wvLui252hGq49U_r40EyI2ZPlexEnfhvWZtmT1BzeWMTlv4J6DkAb72ccZb4B2xygNiP5VAkWlKtrNm6Xc_Q5JB6zZbmj_nAAAAAVRi_IAA")
-STRING2 = getenv("STRING_SESSION2", "AgC60rXrc69BPXWCOpkdXwm2T6v2QU_rAJWSwQbM5_FbJlWHgJ75t0aRQrNAWEwCw0lG76nFRLXKiprgkWBPLpHrctF0wmBbRgpwffaXlvZ-rcMZdQLOxkCkOJZWoMbEbPRso1w-LDvuHd2w18p1DJxbHoT1Pfq25ERGOSZqSxFqhQBa3hId_TCkpwxEukWzBYpyMbDKxzchKKraCmN-_IOCeZnuCU8HzQzJntF4Q416_K3kzEwiQwY1eqs-zZON79FGD_dIi5mkqmecoh1b4iMcPt7TQRvsSbxiJg3hyNtbsUxE6KYdRdF5uDOJvP6PjKCTYyraS3e32A0qcKjTljHbAAAAAUGEvugA")
+STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
 STRING5 = getenv("STRING_SESSION5", None)
@@ -180,7 +180,7 @@ autoclean = []
 
 
 # Images
-START_IMG_URL = getenv("START_IMG_URL", "https://te.legra.ph/file/81130cea4c8af366dfcd7.jpg")
+START_IMG_URL = getenv("START_IMG_URL", "https://te.legra.ph/file/418db75996538318e12f5.jpg")
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
